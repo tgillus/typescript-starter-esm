@@ -3,7 +3,5 @@ coverage
 .eslintcache
 node_modules
 
-npm-debug.log*
+*.log*
 *.swp
-yarn-debug.log*
-yarn-error.log*
