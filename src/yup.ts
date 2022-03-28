@@ -20,17 +20,16 @@ const fooSchema = yup.object({
     .required(),
   ids: yup
     .array()
+    .of(yup.string().required())
     .transform((value, originalValue) => {
       const originalValueWithoutSpaces = originalValue.replace(/\s*/g, '');
 
       return originalValueWithoutSpaces.split(',');
     })
-    .of(yup.string().required())
     .test('isValidDate', 'ids must be combination of 1, 2, or 3', (value) => {
       if (!value) {
         return false;
       }
-      console.log('value', value.join(','));
 
       return /^(1|2|3)(,(1|2|3))*$/.test(value.join(','));
     })
