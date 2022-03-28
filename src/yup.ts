@@ -40,5 +40,5 @@ const fooSchema = yup.object({
 try {
   console.log(fooSchema.validateSync({ date: '2022-03-31', ids: ' 1, 2,3 ' }));
 } catch (error) {
-  console.log(error);
+  console.error(error);
 }
