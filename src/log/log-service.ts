@@ -1,6 +1,6 @@
 import log from 'lambda-log';
-import { nanoid } from 'nanoid';
 import { CorrelationId } from './correlation-id.js';
+import { IdGenerator } from './id-generator.js';
 
 export class LogService {
   constructor(private readonly logger: log.LambdaLog) {}
@@ -23,7 +23,7 @@ export class LogService {
     };
     logger.options.dynamicMeta = () => {
       return {
-        id: nanoid(),
+        id: IdGenerator.id(),
         timestamp: new Date().toISOString(),
       };
     };

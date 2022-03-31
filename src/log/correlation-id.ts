@@ -1,5 +1,5 @@
-import { nanoid } from 'nanoid';
+import { IdGenerator } from './id-generator.js';
 
 export class CorrelationId {
-  public static readonly id = nanoid();
+  public static readonly id = IdGenerator.id();
 }
