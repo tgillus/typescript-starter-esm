@@ -1,7 +1,13 @@
 import { nanoid } from 'nanoid';
 
 export class IdGenerator {
-  static id() {
+  private static readonly correlationId = IdGenerator.generate();
+
+  static correlation() {
+    return IdGenerator.correlationId;
+  }
+
+  static generate() {
     return nanoid();
   }
 }

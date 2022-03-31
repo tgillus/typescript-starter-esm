@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { add } from './add.js';
 import { ListBucketsCommand, S3Client } from '@aws-sdk/client-s3';
 import { LogService } from './log/log-service.js';
-import { CorrelationId } from './log/correlation-id.js';
+import { IdGenerator } from './log/id-generator.js';
 
 console.log(add(1, 2));
 
@@ -25,6 +25,6 @@ function foo<T>(val: T | number): val is number {
 console.log(foo(true));
 console.log(foo(5));
 
-console.log(CorrelationId.id);
+console.log(IdGenerator.correlation());
 LogService.build().somethingHappended();
-console.log(CorrelationId.id);
+console.log(IdGenerator.correlation());

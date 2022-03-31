@@ -1,5 +1,4 @@
 import log from 'lambda-log';
-import { CorrelationId } from './correlation-id.js';
 import { IdGenerator } from './id-generator.js';
 
 export class LogService {
@@ -16,14 +15,14 @@ export class LogService {
 
     logger.options.dev = true;
     logger.options.meta = {
-      correlationId: CorrelationId.id,
+      correlationId: IdGenerator.correlation(),
       function: 'function',
       principalId: 'principalId',
       version: 'version',
     };
     logger.options.dynamicMeta = () => {
       return {
-        id: IdGenerator.id(),
+        id: IdGenerator.generate(),
         timestamp: new Date().toISOString(),
       };
     };
